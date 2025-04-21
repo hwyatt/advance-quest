@@ -91,7 +91,10 @@ export default function Home() {
           <h2 className="font-medium text-2xl text-center">Who We Are</h2>
           <div className="flex flex-col gap-2 md:grid grid-cols-12">
             {VALUES.map((value: any) => (
-              <div className="bg-[#c12230] h-[265px] col-span-4 text-primary-foreground flex flex-col justify-end gap-4 p-8 rounded-xl relative overflow-hidden">
+              <div
+                className="bg-[#c12230] h-[265px] col-span-4 text-primary-foreground flex flex-col justify-end gap-4 p-8 rounded-xl relative overflow-hidden"
+                key={value.title}
+              >
                 <div className="z-10 relative flex flex-col justify-end gap-4">
                   <span className="font-medium">{value.title}</span>
                   <span>{value.desc}</span>
