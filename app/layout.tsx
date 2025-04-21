@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +29,30 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="w-full bg-white shadow-xl">
+          <div className="py-8 px-4 md:px-8 m-auto md:max-w-[1280px] flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={200}
+              height={140}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
         {children}
+        <footer className="flex bg-primary text-white p-8">
+          <div className="px-4 md:px-8 m-auto md:max-w-[1280px] flex flex-col justify-center gap-2">
+            <span className="font-medium text-lg text-center">Contact Us</span>
+            <div className="flex gap-4">
+              <Link href="mailto:drew_palser@hotmail.com">
+                drew_palser@hotmail.com
+              </Link>
+              <span>|</span>
+              <Link href="tel:205-577-6926">(205) 577-6926</Link>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
