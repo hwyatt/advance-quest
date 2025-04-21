@@ -44,12 +44,20 @@ export default function RootLayout({
         <footer className="flex bg-primary text-white p-8">
           <div className="px-4 md:px-8 m-auto md:max-w-[1280px] flex flex-col justify-center gap-2">
             <span className="font-medium text-lg text-center">Contact Us</span>
-            <div className="flex gap-4">
-              <Link href="mailto:drew_palser@hotmail.com">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+              <Link
+                href="mailto:drew_palser@hotmail.com"
+                className="text-center md:text-start"
+              >
                 drew_palser@hotmail.com
               </Link>
-              <span>|</span>
-              <Link href="tel:205-577-6926">(205) 577-6926</Link>
+              <span className="hidden md:block">|</span>
+              <Link
+                href="tel:205-577-6926"
+                className="text-center md:text-start"
+              >
+                (205) 577-6926
+              </Link>
             </div>
           </div>
         </footer>

@@ -137,10 +137,12 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex gap-4 items-center justify-between border-y p-4">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-y p-4">
           <div className="flex flex-col gap-1">
-            <h2 className="font-medium text-2xl">Ready to get started?</h2>
-            <span>
+            <h2 className="font-medium text-2xl text-center md:text-start">
+              Ready to get started?
+            </h2>
+            <span className="text-center md:text-start">
               We would love to connect with you on your business needs
             </span>
           </div>
