@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import GetStarted from "@/components/molecules/getStarted";
 import {
   Card,
   CardContent,
@@ -9,7 +9,20 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 
-const VALUES = [
+type CoreValue = {
+  title: string;
+  desc: string;
+};
+
+type Package = {
+  name: string;
+  idealFor: string;
+  goal: string;
+  includes: string[];
+  idealClients: string;
+};
+
+const VALUES: CoreValue[] = [
   {
     title: "Core Value 1",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -24,7 +37,7 @@ const VALUES = [
   },
 ];
 
-const PACKAGES = [
+const PACKAGES: Package[] = [
   {
     name: "Vision & Strategy",
     idealFor: "Early-stage planning or discovery phase",
@@ -73,24 +86,11 @@ const PACKAGES = [
 export default function Home() {
   return (
     <div className="flex flex-col gap-4 md:gap-8 min-h-screen">
-      <div className="relative w-[calc(100vw - 16px)] min-h-62">
-        <Image
-          src="/background.jpg"
-          fill
-          alt="background"
-          style={{ objectFit: "cover" }}
-          className="z-0"
-        />
-        <div className="absolute inset-0 bg-black/70 z-10" />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-light text-center z-20 p-4">
-          Momentum begins with a purposeful step
-        </h1>
-      </div>
       <div className="flex flex-col gap-8 md:gap-16 min-h-screen py-8 px-4 md:px-8 m-auto md:max-w-[1280px]">
         <div className="flex flex-col gap-2">
           <h2 className="font-medium text-2xl text-center">Who We Are</h2>
           <div className="flex flex-col gap-2 md:grid grid-cols-12">
-            {VALUES.map((value: any) => (
+            {VALUES.map((value: CoreValue) => (
               <div
                 className="bg-[#c12230] h-[265px] col-span-4 text-primary-foreground flex flex-col justify-end gap-4 p-8 rounded-xl relative overflow-hidden"
                 key={value.title}
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <h2 className="font-medium text-2xl text-center">Our Packages</h2>
           <div className="flex flex-col gap-2 md:grid grid-cols-12">
-            {PACKAGES.map((PACKAGE: any) => (
+            {PACKAGES.map((PACKAGE: Package) => (
               <Card className="col-span-4" key={PACKAGE.name}>
                 <CardHeader>
                   <CardTitle>{PACKAGE.name}</CardTitle>
@@ -121,7 +121,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <ul className="flex flex-col gap-1 list-disc list-inside">
-                    {PACKAGE.includes.map((item: any) => (
+                    {PACKAGE.includes.map((item: string) => (
                       <li className="font-medium text-sm" key={item}>
                         {item}
                       </li>
@@ -137,21 +137,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-y p-4">
-          <div className="flex flex-col gap-1">
-            <h2 className="font-medium text-2xl text-center md:text-start">
-              Ready to get started?
-            </h2>
-            <span className="text-center md:text-start">
-              We would love to connect with you on your business needs
-            </span>
-          </div>
-          <div>
-            <Button variant="primary" size="lg">
-              Get Started
-            </Button>
-          </div>
-        </div>
+        <GetStarted />
       </div>
     </div>
   );
