@@ -32,13 +32,13 @@ export default function RootLayout({
       >
         <div className="relative w-full">
           <Image
-            src="/background.jpg"
+            src="/background.png"
             fill
             alt="background"
             style={{ objectFit: "cover" }}
             className="z-0"
           />
-          <div className="absolute inset-0 bg-black/70 z-10" />
+          <div className="absolute inset-0 bg-black/80 z-10" />
           <div className="relative z-20 flex flex-col items-center justify-center gap-8 md:gap-16 px-4 md:px-8 py-8 md:py-16 text-white text-center">
             <div className="bg-white p-4 rounded-xl">
               <Image
