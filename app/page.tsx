@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
 
 type CoreValue = {
   title: string;
@@ -106,9 +105,16 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <h2 className="font-medium text-2xl text-center">Who We Are</h2>
           <div className="flex justify-center">
-          <p className="text-center lg:max-w-1/2 lg:text-lg">
-            At Advance Quest, we provide visionary solutions that transform organizations and spaces into highly effective, future-ready environments. With an eagle-eye perspective, we craft tailored strategies that increase efficiency, streamline processes, and optimize resource use. Our goal is to create sustainable systems that drive growth, empower teams, and maximize performance. We don’t just help businesses adapt—we help them thrive in an ever-evolving world.
-          </p>
+            <p className="text-center lg:max-w-1/2 lg:text-lg">
+              At Advance Quest, we provide visionary solutions that transform
+              organizations and spaces into highly effective, future-ready
+              environments. With an eagle-eye perspective, we craft tailored
+              strategies that increase efficiency, streamline processes, and
+              optimize resource use. Our goal is to create sustainable systems
+              that drive growth, empower teams, and maximize performance. We
+              don’t just help businesses adapt—we help them thrive in an
+              ever-evolving world.
+            </p>
           </div>
         </div>
         <div className="flex flex-col gap-2">
@@ -116,11 +122,13 @@ export default function Home() {
           <ol className="flex flex-col gap-4">
             {VALUES.map((value: CoreValue, index: number) => (
               <div className="flex items-start gap-2" key={value.title}>
-              <span className="text-sm font-medium flex items-center justify-center bg-[#c12230] p-2 rounded-full text-white min-h-8 h-8 min-w-8">{index + 1}</span>
-              <div className="flex flex-col">
-                <span className="font-medium">{value.title}</span>
-                <span className="text-sm">{value.desc}</span>
-              </div>
+                <span className="text-sm font-medium flex items-center justify-center bg-[#c12230] p-2 rounded-full text-white min-h-8 h-8 min-w-8">
+                  {index + 1}
+                </span>
+                <div className="flex flex-col">
+                  <span className="font-medium">{value.title}</span>
+                  <span className="text-sm">{value.desc}</span>
+                </div>
               </div>
             ))}
           </ol>
