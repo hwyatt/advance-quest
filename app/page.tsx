@@ -24,16 +24,32 @@ type Package = {
 
 const VALUES: CoreValue[] = [
   {
-    title: "Core Value 1",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Innovation",
+    desc: "We embrace creative problem-solving, always seeking new and better ways to enhance organizational flow and increase impact.",
   },
   {
-    title: "Core Value 2",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Efficiency",
+    desc: "We prioritize time, resources, and effort optimization, helping clients accomplish more with less.",
   },
   {
-    title: "Core Value 3",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Clarity",
+    desc: "We provide clear, actionable insights and solutions, ensuring every decision is based on a broad, strategic view of the future.",
+  },
+  {
+    title: "Sustainability",
+    desc: "We build systems and structures that are not only effective today but can grow and adapt with the needs of tomorrow.",
+  },
+  {
+    title: "Collaboration",
+    desc: "We work closely with our clients, understanding their unique needs and challenges to create tailored, effective solutions.",
+  },
+  {
+    title: "Impact",
+    desc: "We focus on delivering measurable improvements that result in tangible, lasting value.",
+  },
+  {
+    title: "Integrity",
+    desc: "We operate with transparency, honesty, and a commitment to doing what’s best for our clients and their long-term success.",
   },
 ];
 
@@ -89,26 +105,25 @@ export default function Home() {
       <div className="flex flex-col gap-8 md:gap-16 min-h-screen py-8 px-4 md:px-8 m-auto md:max-w-[1280px]">
         <div className="flex flex-col gap-2">
           <h2 className="font-medium text-2xl text-center">Who We Are</h2>
-          <div className="flex flex-col gap-2 md:grid grid-cols-12">
-            {VALUES.map((value: CoreValue) => (
-              <div
-                className="bg-[#c12230] h-[265px] col-span-4 text-primary-foreground flex flex-col justify-end gap-4 p-8 rounded-xl relative overflow-hidden"
-                key={value.title}
-              >
-                <div className="z-10 relative flex flex-col justify-end gap-4">
-                  <span className="font-medium">{value.title}</span>
-                  <span>{value.desc}</span>
-                </div>
-                <Image
-                  src="/circle.png"
-                  alt="circle"
-                  width={250}
-                  height={250}
-                  className="absolute bottom-44 right-[-48]"
-                />
+          <div className="flex justify-center">
+          <p className="text-center lg:max-w-1/2 lg:text-lg">
+            At Advance Quest, we provide visionary solutions that transform organizations and spaces into highly effective, future-ready environments. With an eagle-eye perspective, we craft tailored strategies that increase efficiency, streamline processes, and optimize resource use. Our goal is to create sustainable systems that drive growth, empower teams, and maximize performance. We don’t just help businesses adapt—we help them thrive in an ever-evolving world.
+          </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h2 className="font-medium text-2xl text-center">Core Values</h2>
+          <ol className="flex flex-col gap-4">
+            {VALUES.map((value: CoreValue, index: number) => (
+              <div className="flex items-start gap-2" key={value.title}>
+              <span className="text-sm font-medium flex items-center justify-center bg-[#c12230] p-2 rounded-full text-white min-h-8 h-8 min-w-8">{index + 1}</span>
+              <div className="flex flex-col">
+                <span className="font-medium">{value.title}</span>
+                <span className="text-sm">{value.desc}</span>
+              </div>
               </div>
             ))}
-          </div>
+          </ol>
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="font-medium text-2xl text-center">Our Packages</h2>
