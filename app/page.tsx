@@ -7,6 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ReactNode } from "react";
+import { FaDraftingCompass, FaHardHat, FaLightbulb } from "react-icons/fa";
+import Image from "next/image";
 
 type CoreValue = {
   title: string;
@@ -19,6 +22,7 @@ type Package = {
   goal: string;
   includes: string[];
   idealClients: string;
+  icon: ReactNode;
 };
 
 const VALUES: CoreValue[] = [
@@ -67,6 +71,7 @@ const PACKAGES: Package[] = [
     ],
     idealClients:
       "clients who are considering a remodel but need clarity on scope, direction, and feasibility.",
+    icon: <FaLightbulb className="text-[#c12230] w-6 h-6" />,
   },
   {
     name: "Design & Drafting",
@@ -81,6 +86,7 @@ const PACKAGES: Package[] = [
     ],
     idealClients:
       "clients who already know they want to remodel and need a clear, professional design to move forward.",
+    icon: <FaDraftingCompass className="text-[#c12230] w-6 h-6" />,
   },
   {
     name: "End-to-End Project Management",
@@ -95,6 +101,7 @@ const PACKAGES: Package[] = [
     ],
     idealClients:
       "busy business owners or organizations who want a turnkey solution with a single point of accountability.",
+    icon: <FaHardHat className="text-[#c12230] w-6 h-6" />,
   },
 ];
 
@@ -102,10 +109,23 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-4 md:gap-8 min-h-screen">
       <div className="flex flex-col gap-8 md:gap-16 min-h-screen py-8 px-4 md:px-8 m-auto md:max-w-[1280px]">
-        <div className="flex flex-col gap-2">
-          <h2 className="font-medium text-2xl text-center">Who We Are</h2>
-          <div className="flex justify-center">
-            <p className="text-center lg:max-w-1/2 lg:text-lg">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-4xl font-light max-w-prose text-center">
+            Momentum begins with a{" "}
+            <span className="font-medium text-[#c12230] underline underline-offset-8">
+              purposeful step
+            </span>
+          </h1>
+          <div className="relative w-full flex justify-center">
+            <Image src="/shape.png" height={360} width={640} alt="background" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="w-full flex flex-col gap-2 items-center">
+            <h2 className="text-center font-medium text-2xl text-[#911a24]">
+              Who We Are
+            </h2>
+            <p className="text-center md:w-1/2">
               At Advance Quest, we provide visionary solutions that transform
               organizations and spaces into highly effective, future-ready
               environments. With an eagle-eye perspective, we craft tailored
@@ -117,28 +137,49 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <h2 className="font-medium text-2xl text-center">Core Values</h2>
-          <ol className="flex flex-col gap-4">
-            {VALUES.map((value: CoreValue, index: number) => (
-              <div className="flex items-start gap-2" key={value.title}>
-                <span className="text-sm font-medium flex items-center justify-center bg-[#c12230] p-2 rounded-full text-white min-h-8 h-8 min-w-8">
-                  {index + 1}
-                </span>
-                <div className="flex flex-col">
-                  <span className="font-medium">{value.title}</span>
-                  <span className="text-sm">{value.desc}</span>
+        <div className="relative flex flex-col gap-2 p-4 md:p-8 rounded-lg bg-gray-100 shadow-lg overflow-hidden">
+          {/* Background Logo Overlay */}
+          <Image
+            src="/gray-logo.png"
+            alt="Gray Logo"
+            fill
+            className="object-contain z-0 pointer-events-none"
+            style={{ objectPosition: "right" }}
+          />
+
+          {/* Content Layer */}
+          <div className="relative z-10 flex flex-col gap-2">
+            <h2 className="font-medium text-2xl text-center text-[#911a24]">
+              Core Values
+            </h2>
+            <ol className="flex flex-col gap-4">
+              {VALUES.map((value: CoreValue, index: number) => (
+                <div className="flex items-start gap-2" key={value.title}>
+                  <span className="text-sm font-medium flex items-center justify-center bg-[#c12230] p-2 rounded-full text-white min-h-8 h-8 min-w-8">
+                    {index + 1}
+                  </span>
+                  <div className="flex flex-col">
+                    <span className="font-medium">{value.title}</span>
+                    <span className="text-sm">{value.desc}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </ol>
+              ))}
+            </ol>
+          </div>
         </div>
+
         <div className="flex flex-col gap-2">
-          <h2 className="font-medium text-2xl text-center">Our Packages</h2>
+          <h2 className="font-medium text-2xl text-center text-[#911a24]">
+            Our Packages
+          </h2>
           <div className="flex flex-col gap-2 md:grid grid-cols-12">
             {PACKAGES.map((PACKAGE: Package) => (
-              <Card className="col-span-4" key={PACKAGE.name}>
+              <Card
+                className="col-span-4 shadow-lg border-2 border-gray-200"
+                key={PACKAGE.name}
+              >
                 <CardHeader>
+                  {PACKAGE.icon}
                   <CardTitle>{PACKAGE.name}</CardTitle>
                   <CardDescription>{PACKAGE.goal}</CardDescription>
                 </CardHeader>

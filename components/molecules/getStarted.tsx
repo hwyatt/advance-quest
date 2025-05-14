@@ -10,7 +10,7 @@ const handleEmailClick = () => {
 
 const GetStarted = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-y p-4">
+    <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-y-2 border-gray-200 p-4">
       <div className="flex flex-col gap-1">
         <h2 className="font-medium text-2xl text-center md:text-start">
           Ready to get started?
@@ -20,7 +20,12 @@ const GetStarted = () => {
         </span>
       </div>
       <div>
-        <Button variant="primary" size="lg" onClick={() => handleEmailClick()}>
+        <Button
+          className="hover:cursor-pointer"
+          variant="primary"
+          size="lg"
+          onClick={() => handleEmailClick()}
+        >
           Get Started
         </Button>
       </div>
